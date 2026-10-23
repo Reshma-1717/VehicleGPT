@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-10-23T17:29:31.591240",
+  "hardware": {
+    "cpu_cores": 8,
+    "process_memory_mb": 40.81,
+    "database_size_mb": 1.184,
+    "total_records": 4033
+  },
+  "queries": {
+    "Query 1: Range Drop Explanation": {
+      "p50_ms": 12.13,
+      "p95_ms": 18.7,
+      "avg_ms": 12.96,
+      "target_ms": 2000.0,
+      "passed": true,
+      "intent": "RANGE_REDUCTION_EXPLANATION",
+      "source": "deterministic_fallback"
+    },
+    "Query 2: Largest Efficiency Drop": {
+      "p50_ms": 14.93,
+      "p95_ms": 22.14,
+      "avg_ms": 15.66,
+      "target_ms": 2000.0,
+      "passed": true,
+      "intent": "EFFICIENCY_DROP_CHANGEPOINT",
+      "source": "deterministic_fallback"
+    },
+    "Query 3: Yesterday ADAS Disengagements": {
+      "p50_ms": 9.66,
+      "p95_ms": 15.44,
+      "avg_ms": 9.84,
+      "target_ms": 2000.0,
+      "passed": true,
+      "intent": "ADAS_DISENGAGEMENTS",
+      "source": "deterministic_fallback"
+    },
+    "Query 4: Pre-Event Overheat Investigation": {
+      "p50_ms": 46.58,
+      "p95_ms": 60.54,
+      "avg_ms": 47.04,
+      "target_ms": 2000.0,
+      "passed": true,
+      "intent": "PRE_EVENT_INVESTIGATION",
+      "source": "deterministic_fallback"
+    },
+    "Query 5: City vs Highway Efficiency": {
+      "p50_ms": 10.54,
+      "p95_ms": 15.75,
+      "avg_ms": 10.67,
+      "target_ms": 2000.0,
+      "passed": true,
+      "intent": "CITY_VS_HIGHWAY_EFFICIENCY",
+      "source": "deterministic_fallback"
+    },
+    "Query 6: Warning Codes Before Fault": {
+      "p50_ms": 13.89,
+      "p95_ms": 17.89,
+      "avg_ms": 14.14,
+      "target_ms": 2000.0,
+      "passed": true,
+      "intent": "WARNINGS_BEFORE_FAULT",
+      "source": "deterministic_fallback"
+    },
+    "Query 7: Out-of-Retention Edge Case": {
+      "p50_ms": 5.32,
+      "p95_ms": 7.47,
+      "avg_ms": 5.4,
+      "target_ms": 2000.0,
+      "passed": true,
+      "intent": "INSUFFICIENT_DATA",
+      "source": "deterministic_fallback"
+    }
+  }
+}

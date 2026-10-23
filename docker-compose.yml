@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  vehiclegpt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vehiclegpt-edge
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - HARDWARE_PROFILE=constrained
+      - DATABASE_PATH=/app/data/vehiclegpt.db
+      - READ_ONLY_VEHICLE_BUS=true
+      - BLOCK_ACTUATOR_COMMANDS=true
+      - ALLOW_CLOUD_APIS=false
+      - LLM_MODEL_PATH=/app/models/Llama-3.2-1B-Instruct-Q4_K_M.gguf
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
