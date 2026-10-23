@@ -1,0 +1,46 @@
+[
+  {
+    "vehicle_id": "VIN-TATA-EV-2026-X01",
+    "trip_id": "TRIP-REPLAY-001",
+    "timestamp": "2026-10-23T08:00:00",
+    "signal_name": "vehicle_speed_kmh",
+    "value": 45.2,
+    "unit": "km/h",
+    "protocol": "CAN_FD",
+    "quality": "VALID",
+    "tier": "hot"
+  },
+  {
+    "vehicle_id": "VIN-TATA-EV-2026-X01",
+    "trip_id": "TRIP-REPLAY-001",
+    "timestamp": "2026-10-23T08:00:00",
+    "signal_name": "battery_soc_percent",
+    "value": 84.5,
+    "unit": "%",
+    "protocol": "CAN_FD",
+    "quality": "VALID",
+    "tier": "hot"
+  },
+  {
+    "vehicle_id": "VIN-TATA-EV-2026-X01",
+    "trip_id": "TRIP-REPLAY-001",
+    "timestamp": "2026-10-23T08:00:00",
+    "signal_name": "battery_pack_temp_c",
+    "value": 26.8,
+    "unit": "C",
+    "protocol": "CAN_FD",
+    "quality": "VALID",
+    "tier": "hot"
+  },
+  {
+    "vehicle_id": "VIN-TATA-EV-2026-X01",
+    "trip_id": "TRIP-REPLAY-001",
+    "timestamp": "2026-10-23T08:00:00",
+    "signal_name": "energy_consumption_kwh_100km",
+    "value": 15.8,
+    "unit": "kWh/100km",
+    "protocol": "CAN_FD",
+    "quality": "VALID",
+    "tier": "hot"
+  }
+]
