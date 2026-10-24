@@ -61,3 +61,19 @@ def test_api_simulation_lifecycle(client):
     res_start = client.post("/api/simulation/start")
     assert res_start.status_code == 200
     assert res_start.json()["active"] is True
+
+def test_api_analytics_soh(client):
+    res = client.get("/api/analytics/soh?total_throughput_kwh=15000")
+    assert res.status_code == 200
+    data = res.json()
+    assert "soh_percent" in data
+    assert "equivalent_full_cycles" in data
+    assert data["nominal_capacity_kwh"] == 80.0
+
+def test_api_analytics_thermal_load(client):
+    res = client.get("/api/analytics/thermal-load?ambient_temp_c=36.0&cabin_temp_c=30.0")
+    assert res.status_code == 200
+    data = res.json()
+    assert "cabin_electrical_kw" in data
+    assert "total_aux_thermal_kw" in data
+
