@@ -92,4 +92,20 @@ Write-Host "Updating main branch to match latest commit..."
 git branch -f main feature/testing-and-deployment
 git checkout main
 
-Write-Host "All 17 commits created across 6 feature branches + main!"
+Write-Host "=== Commit 18: Susmitha ==="
+git add backend/app/analytics/engine.py backend/app/api/routes_vehicle.py backend/app/ingestion/adapters/simulator_adapter.py backend/app/llm/fallback_templates.py backend/app/schemas/telemetry.py frontend/src/pages/OverviewPage.tsx frontend/src/types/index.ts
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "feat(real-data): implement real vehicle data loader, dynamic physics engine, and zero-hardcoding overview"
+
+Write-Host "=== Commit 19: Susmitha ==="
+git add backend/app/ingestion/real_data_loader.py sample_data/real_ev_drive_cycle.csv scripts/import_real_data.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "feat(ingestion): add real automotive CSV drive cycle importer and CLI tool"
+
+Write-Host "=== Commit 20: Susmitha ==="
+git add backend/tests/test_real_data_loader.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "test: add 35-suite test coverage for real drive cycle loader and dynamic physics"
+
+Write-Host "Creating feature/real-data-ingestion branch under Susmitha..."
+git branch -f feature/real-data-ingestion main
+
+Write-Host "All 20 commits created across 7 feature branches + main!"
+
