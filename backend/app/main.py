@@ -13,7 +13,8 @@ from backend.app.api import (
     routes_analytics,
     routes_chat,
     routes_simulation,
-    routes_system
+    routes_system,
+    routes_diagnostics
 )
 
 setup_logging()
@@ -67,6 +68,8 @@ app.include_router(routes_analytics.router)
 app.include_router(routes_chat.router)
 app.include_router(routes_simulation.router)
 app.include_router(routes_system.router)
+app.include_router(routes_diagnostics.router)
+
 
 @app.get("/")
 async def root():
