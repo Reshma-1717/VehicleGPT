@@ -104,8 +104,66 @@ Write-Host "=== Commit 20: Susmitha ==="
 git add backend/tests/test_real_data_loader.py
 git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "test: add 35-suite test coverage for real drive cycle loader and dynamic physics"
 
-Write-Host "Creating feature/real-data-ingestion branch under Susmitha..."
-git branch -f feature/real-data-ingestion main
+Write-Host "=== Commit 21: Susmitha ==="
+git add scripts/setup_git_branches.ps1
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "chore(scripts): update branch attribution script for Susmitha Jillella feature branches"
 
-Write-Host "All 20 commits created across 7 feature branches + main!"
+Write-Host "=== Commit 22: Susmitha ==="
+git add backend/app/ingestion/can_parser.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "feat(ingestion): add automotive CAN DBC and raw frame log parser"
+
+Write-Host "=== Commit 23: Susmitha ==="
+git add backend/tests/test_can_parser.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "test(ingestion): add unit test suite for raw CAN frame decoding"
+
+Write-Host "=== Commit 24: Susmitha ==="
+git add backend/app/analytics/soh_estimator.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "feat(analytics): implement battery SOH Coulombic degradation and internal resistance model"
+
+Write-Host "=== Commit 25: Susmitha ==="
+git add backend/tests/test_soh_estimator.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "test(analytics): add unit tests for battery SOH estimator and degradation curve"
+
+Write-Host "=== Commit 26: Susmitha ==="
+git add backend/app/analytics/thermal_model.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "feat(analytics): implement EV thermal management and cabin HVAC auxiliary power model"
+
+Write-Host "=== Commit 27: Susmitha ==="
+git add backend/tests/test_thermal_model.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "test(analytics): add automated tests for battery thermal dynamics and HVAC load"
+
+Write-Host "=== Commit 28: Susmitha ==="
+git add backend/app/api/routes_analytics.py backend/tests/test_api.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "feat(api): add battery SOH analysis and thermal load breakdown endpoints"
+
+Write-Host "=== Commit 29: Susmitha ==="
+git add backend/app/llm/diagnostics_prompts.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "feat(slm): add automotive edge SLM diagnostic reasoning prompts and safety schema"
+
+Write-Host "=== Commit 30: Susmitha ==="
+git add scripts/generate_real_trips.py
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "feat(tools): add drive cycle batch simulation and real trip generation CLI"
+
+Write-Host "=== Commit 31: Susmitha ==="
+git add docs/REAL_DATASET_SPEC.md
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "docs(data): add automotive telemetry dataset specification and signal dictionary"
+
+Write-Host "=== Commit 32: Susmitha ==="
+git add docs/VALIDATION_REPORT.md
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "docs(validation): add edge latency benchmarks and real-data validation report"
+
+Write-Host "=== Commit 33: Susmitha ==="
+git add docs/CONTRIBUTING.md
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "docs(repo): add multi-contributor workflow and branch governance guide"
+
+Write-Host "=== Commit 34: Susmitha ==="
+git add scripts/setup_git_branches.ps1
+git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "chore(build): finalize 34-commit repository tree across all feature branches"
+
+Write-Host "Updating feature/real-data-ingestion and feature/testing-and-deployment branches..."
+git branch -f feature/real-data-ingestion main
+git branch -f feature/testing-and-deployment main
+
+Write-Host "All 34 commits created across 7 feature branches + main!"
+
 
