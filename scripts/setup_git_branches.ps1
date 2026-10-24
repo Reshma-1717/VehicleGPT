@@ -158,12 +158,76 @@ git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com
 
 Write-Host "=== Commit 34: Susmitha ==="
 git add scripts/setup_git_branches.ps1
-git -c user.name="Susmitha Jillella" -c user.email="jillellasusmitha24@gmail.com" commit --author="Susmitha Jillella <jillellasusmitha24@gmail.com>" -m "chore(build): finalize 34-commit repository tree across all feature branches"
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "chore(build): finalize 34-commit repository tree across all feature branches"
 
-Write-Host "Updating feature/real-data-ingestion and feature/testing-and-deployment branches..."
+Write-Host "=== Commit 35: Susmitha ==="
+git add backend/app/analytics/regen_braking.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "feat(analytics): implement physical regenerative braking kinetic recovery model"
+
+Write-Host "=== Commit 36: Susmitha ==="
+git add backend/tests/test_regen_braking.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "test(analytics): add unit tests for regenerative braking efficiency and curtailment"
+
+Write-Host "=== Commit 37: Susmitha ==="
+git add backend/app/analytics/driver_scoring.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "feat(analytics): implement driving style efficiency and harsh event scoring engine"
+
+Write-Host "=== Commit 38: Susmitha ==="
+git add backend/tests/test_driver_scoring.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "test(analytics): add unit tests for driver behavior and eco-efficiency evaluation"
+
+Write-Host "=== Commit 39: Susmitha ==="
+git add backend/app/analytics/tire_monitor.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "feat(analytics): implement thermodynamic tire pressure temperature compensation model"
+
+Write-Host "=== Commit 40: Susmitha ==="
+git add backend/tests/test_tire_monitor.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "test(analytics): add unit tests for tire temperature compensation and puncture alerts"
+
+Write-Host "=== Commit 41: Susmitha ==="
+git add backend/app/ingestion/obd_parser.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "feat(ingestion): implement SAE J1979 OBD-II standard Mode 01 PID decoder"
+
+Write-Host "=== Commit 42: Susmitha ==="
+git add backend/tests/test_obd_parser.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "test(ingestion): add unit test suite for standard OBD-II PID decoding"
+
+Write-Host "=== Commit 43: Susmitha ==="
+git add backend/app/api/routes_diagnostics.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "feat(api): implement vehicle DTC diagnostics and battery health certificate endpoints"
+
+Write-Host "=== Commit 44: Susmitha ==="
+git add backend/app/main.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "feat(server): mount diagnostics router in FastAPI application"
+
+Write-Host "=== Commit 45: Susmitha ==="
+git add backend/tests/test_routes_diagnostics.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "test(api): add automated pytest suite for diagnostic trouble codes and battery certificate"
+
+Write-Host "=== Commit 46: Susmitha ==="
+git add scripts/export_telemetry_csv.py
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "feat(tools): add telemetry CSV dataset export utility"
+
+Write-Host "=== Commit 47: Susmitha ==="
+git add docs/CASE_STUDY_1_RANGE_ANALYSIS.md
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "docs(analytics): add detailed physical range drop attribution case study analysis"
+
+Write-Host "=== Commit 48: Susmitha ==="
+git add docs/CASE_STUDY_6_PUMP_FAILURE.md
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "docs(diagnostics): add cooling pump pre-failure telemetry case study analysis"
+
+Write-Host "=== Commit 49: Susmitha ==="
+git add scripts/setup_git_branches.ps1
+git -c user.name="Jillella Susmitha" -c user.email="jillellasusmitha24@gmail.com" commit --author="Jillella Susmitha <jillellasusmitha24@gmail.com>" -m "chore(build): complete 49-commit repository tree across all feature branches"
+
+Write-Host "Updating all feature branches under Susmitha..."
 git branch -f feature/real-data-ingestion main
 git branch -f feature/testing-and-deployment main
+git branch -f feature/api-service main
+git branch -f feature/analytics-and-slm main
+git branch -f feature/ingestion-and-simulation main
 
-Write-Host "All 34 commits created across 7 feature branches + main!"
+Write-Host "All 49 commits created across 7 feature branches + main!"
+
 
 
