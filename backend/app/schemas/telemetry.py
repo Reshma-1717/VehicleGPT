@@ -23,19 +23,23 @@ class TelemetryRecordResponse(TelemetryRecordBase):
         from_attributes = True
 
 class TelemetryOverview(BaseModel):
+    vehicle_model: Optional[str] = None
+    vin: Optional[str] = None
+    powertrain_type: Optional[str] = None
+    battery_capacity_kwh: Optional[float] = None
     speed_kmh: float = 0.0
     soc_percent: float = 0.0
     battery_temp_c: float = 0.0
     range_km: float = 0.0
     energy_consumption_kwh_100km: float = 0.0
     motor_power_kw: float = 0.0
-    cabin_temp_c: float = 22.0
-    ambient_temp_c: float = 24.0
-    tire_pressure_front_left_bar: float = 2.4
-    tire_pressure_front_right_bar: float = 2.4
-    tire_pressure_rear_left_bar: float = 2.4
-    tire_pressure_rear_right_bar: float = 2.4
-    cooling_pump_duty_percent: float = 35.0
+    cabin_temp_c: float = 0.0
+    ambient_temp_c: float = 0.0
+    tire_pressure_front_left_bar: float = 0.0
+    tire_pressure_front_right_bar: float = 0.0
+    tire_pressure_rear_left_bar: float = 0.0
+    tire_pressure_rear_right_bar: float = 0.0
+    cooling_pump_duty_percent: float = 0.0
     last_updated: datetime
     current_trip_id: Optional[str] = None
     status: str = "PARKED"

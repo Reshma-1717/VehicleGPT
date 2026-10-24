@@ -78,6 +78,19 @@ class FallbackTemplates:
     @staticmethod
     def pre_event_window_answer(window: PreEventWindow) -> str:
         findings_text = "\n".join([f"  - {f}" for f in window.key_findings])
+        
+        # Dynamically formulate root-cause conclusion based on observed signals
+        if "battery_pack_temp_c" in window.root_cause_signals and "battery_current_a" in window.root_cause_signals:
+            conclusion = "High battery discharge current coupled with active thermal load drove the pack temperature across the critical safety threshold."
+        elif "battery_pack_temp_c" in window.root_cause_signals:
+            conclusion = "Battery thermal limits were exceeded due to elevated cell temperatures during vehicle operation."
+        elif "ADAS" in window.event_type:
+            conclusion = f"ADAS system disengaged following sensor input anomalies observed in: {', '.join(window.root_cause_signals) if window.root_cause_signals else 'vision/radar telemetry'}."
+        elif window.root_cause_signals:
+            conclusion = f"Event triggered following critical physical parameter anomalies observed across: {', '.join(window.root_cause_signals)}."
+        else:
+            conclusion = "Parameters prior to event were within standard baseline operating limits."
+
         return (
             f"### Pre-Event Telemetry Investigation (60s Window)\n\n"
             f"Telemetry investigation prior to event **`{window.event_id}`** (**{window.event_type}**) at "
@@ -86,7 +99,7 @@ class FallbackTemplates:
             f"{findings_text}\n\n"
             f"- **Root Cause Signals:** `{', '.join(window.root_cause_signals)}`\n"
             f"- **High-rate samples examined:** {len(window.telemetry)} data points\n\n"
-            f"*Conclusion:* The battery pack exceeded thermal safety limits due to sustained high discharge current combined with coolant flow constraints."
+            f"*Conclusion:* {conclusion}"
         )
 
     @staticmethod

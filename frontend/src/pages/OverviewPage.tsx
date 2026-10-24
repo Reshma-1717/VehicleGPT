@@ -75,14 +75,19 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
                 Vehicle Online
               </span>
               <span className="px-2 py-0.5 rounded text-[10px] font-mono text-slate-400 bg-slate-800 border border-slate-700">
-                Powertrain: Dual-Motor AWD
+                Powertrain: {overview?.powertrain_type || 'EV Powertrain'}
               </span>
+              {overview?.vin && (
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono text-slate-400 bg-slate-800/60 border border-slate-750">
+                  VIN: {overview.vin}
+                </span>
+              )}
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-1.5">
-              TATA Harrier.ev Concept AWD
+              {overview?.vehicle_model || 'Connected Vehicle'}
             </h1>
             <p className="text-sm text-slate-400 mt-1">
-              On-board edge intelligence active. Monitoring 32 vehicle ECUs and continuous CAN-FD telemetry.
+              On-board edge intelligence active. Monitoring vehicle telemetry and real-time sensor streams.
             </p>
           </div>
 

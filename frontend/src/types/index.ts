@@ -1,4 +1,8 @@
 export interface TelemetryOverview {
+  vehicle_model?: string;
+  vin?: string;
+  powertrain_type?: string;
+  battery_capacity_kwh?: number;
   speed_kmh: number;
   soc_percent: number;
   battery_temp_c: number;

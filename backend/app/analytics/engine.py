@@ -262,27 +262,43 @@ class AnalyticsEngine:
             seconds_after=15
         )
 
-        # Extract root-cause signals
+        # Extract root-cause signals dynamically across all recorded signals
         findings = []
         root_signals = []
 
-        speeds = [r["value"] for r in records if r["signal_name"] == "vehicle_speed_kmh"]
-        currents = [r["value"] for r in records if r["signal_name"] == "battery_current_a"]
-        temps = [r["value"] for r in records if r["signal_name"] == "battery_pack_temp_c"]
-        pumps = [r["value"] for r in records if r["signal_name"] == "coolant_pump_duty_percent"]
+        # Group values by signal
+        signal_groups: Dict[str, List[float]] = {}
+        for r in records:
+            sig = r["signal_name"]
+            val = float(r["value"])
+            signal_groups.setdefault(sig, []).append(val)
 
-        if speeds and max(speeds) > 110:
-            findings.append(f"Vehicle sustained high speed (peaking at {max(speeds)} km/h) prior to alert.")
-            root_signals.append("vehicle_speed_kmh")
-        if currents and max(currents) > 250:
-            findings.append(f"High discharge current sustained (peaking at {max(currents)} A), driving I²R resistive heating.")
-            root_signals.append("battery_current_a")
-        if temps and (max(temps) - min(temps)) > 5.0:
-            findings.append(f"Rapid thermal escalation from {min(temps):.1f}°C to {max(temps):.1f}°C in 60s.")
-            root_signals.append("battery_pack_temp_c")
-        if pumps and max(pumps) >= 95.0:
-            findings.append("Cooling pump was commanded to 100% duty cycle, indicating active thermal mitigation.")
-            root_signals.append("coolant_pump_duty_percent")
+        for sig, vals in signal_groups.items():
+            if not vals:
+                continue
+            min_v = min(vals)
+            max_v = max(vals)
+            delta = max_v - min_v
+
+            if sig == "battery_pack_temp_c" and (delta > 3.0 or max_v > 45.0):
+                findings.append(f"Rapid thermal escalation in battery pack from {min_v:.1f}°C to {max_v:.1f}°C (peak: {max_v:.1f}°C).")
+                root_signals.append(sig)
+            elif sig == "battery_current_a" and max_v > 150.0:
+                findings.append(f"High discharge current sustained (peaking at {max_v:.1f} A), driving I²R resistive heating.")
+                root_signals.append(sig)
+            elif sig == "vehicle_speed_kmh" and max_v > 90.0:
+                findings.append(f"Vehicle sustained high cruising speed (peaking at {max_v:.1f} km/h) prior to alert.")
+                root_signals.append(sig)
+            elif sig == "coolant_pump_duty_percent" and max_v >= 80.0:
+                findings.append(f"Cooling pump was commanded to {max_v:.0f}% duty cycle, indicating active thermal mitigation.")
+                root_signals.append(sig)
+            elif sig in ["tire_pressure_fl_bar", "tire_pressure_fr_bar", "tire_pressure_rl_bar", "tire_pressure_rr_bar"] and min_v < 2.0:
+                findings.append(f"Low tire pressure detected on {sig} ({min_v:.2f} bar vs 2.4 bar placard).")
+                root_signals.append(sig)
+            elif delta > (abs(min_v) * 0.5) and abs(min_v) > 0.01:
+                findings.append(f"Signal '{sig}' deviated significantly (range: {min_v:.1f} to {max_v:.1f}) in pre-event window.")
+                if sig not in root_signals:
+                    root_signals.append(sig)
 
         return PreEventWindow(
             event_id=event["id"],
@@ -290,7 +306,7 @@ class AnalyticsEngine:
             event_timestamp=event_ts,
             window_duration_seconds=seconds_before,
             telemetry=records[:150],  # Bound for edge responsiveness
-            key_findings=findings if findings else ["Standard pre-event telemetry window extracted."],
+            key_findings=findings if findings else ["Telemetry parameters remained within standard operating bands."],
             root_cause_signals=root_signals
         )
 
